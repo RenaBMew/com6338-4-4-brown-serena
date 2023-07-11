@@ -24,7 +24,7 @@ var lossesEl = document.getElementById('losses')
 var currentWord = []
 var correctLetters = []
 var incorrectLetters = []
-var guessedLetters = []
+var randomWord = []
 var remainingGuesses = 10
 var wins = 0
 var losses = 0
@@ -37,11 +37,11 @@ function startGame() {
   incorrectLetters = []
   remainingGuesses = 10
 
-  guesses()
+  displayGuesses()
 }
 
 // show guesses, incorrect letters, underscores for word length
-function guesses() {
+function displayGuesses() {
   currentWord = ''
     for (let i = 0; i < randomWord.length; i++) {
       if (correctLetters.indexOf(randomWord[i]) > -1) {
@@ -67,7 +67,7 @@ body.onkeyup = function(e) {
         remainingGuesses--
       }
 
-  guesses()
+  displayGuesses()
       if (currentWord === randomWord) {
         wins++
         winsEl.textContent = wins
